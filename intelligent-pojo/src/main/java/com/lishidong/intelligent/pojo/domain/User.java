@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -37,6 +38,27 @@ public class User implements UserDetails {
 
     @Column(name = "phone", length = 11)
     private String phone;
+
+    /**
+     * 用户上一次登录时间
+     */
+    @Column(name = "login_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date loginTime;
+
+    /**
+     * 用户信息修改时间
+     */
+    @Column(name = "modify_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifyTime;
+
+    /**
+     * 用户创建时间
+     */
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
 
     /**
      * 构造函数
@@ -185,6 +207,30 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -194,6 +240,8 @@ public class User implements UserDetails {
                 ", sex=" + sex +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", loginTime=" + loginTime +
+                ", modifyTime=" + modifyTime +
                 ", accountNonLocked=" + accountNonLocked +
                 ", enabled=" + enabled +
                 '}';

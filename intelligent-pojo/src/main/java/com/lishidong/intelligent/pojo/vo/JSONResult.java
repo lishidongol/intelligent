@@ -12,16 +12,16 @@ public class JSONResult {
      */
     public static Result success(Object data){
         Result result = new Result();
-        result.setError(0);
-        result.setMessage(null);
+        result.setCode(0);
+        result.setMsg(null);
         result.setData(data);
         return result;
     }
 
     public static Result success(Integer error,Object data){
         Result result = new Result();
-        result.setError(error);
-        result.setMessage(null);
+        result.setCode(error);
+        result.setMsg(null);
         result.setData(data);
         return result;
     }
@@ -35,8 +35,8 @@ public class JSONResult {
      */
     public static Result fail(Integer error,String message){
         Result result = new Result();
-        result.setError(error);
-        result.setMessage(message);
+        result.setCode(error);
+        result.setMsg(message);
         result.setData(null);
         return result;
     }

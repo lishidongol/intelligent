@@ -1,7 +1,10 @@
 package com.lishidong.intelligent.pojo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,6 +63,20 @@ public class Resource {
     private char type;
 
     /**
+     * 资源信息修改时间
+     */
+    @Column(name = "modify_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifyTime;
+
+    /**
+     * 资源创建时间
+     */
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
+
+    /**
      * 与其它实体类的关系
      */
 
@@ -74,9 +91,27 @@ public class Resource {
         this.roles = roles;
     }
 
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     /**
      * getter 、setter 方法
      */
+
+
 
     public Long getResourceId() {
         return resourceId;
@@ -153,6 +188,7 @@ public class Resource {
                 ", orderNum=" + orderNum +
                 ", icon='" + icon + '\'' +
                 ", type=" + type +
+                ", modifyTime=" + modifyTime +
                 '}';
     }
 }

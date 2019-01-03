@@ -5,26 +5,26 @@ package com.lishidong.intelligent.pojo.vo;
  */
 public class Result {
 
-    private Integer error;
+    private Integer code;
 
-    private String message;
+    private String msg;
 
     private Object data;
 
-    public Integer getError() {
-        return error;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setError(Integer error) {
-        this.error = error;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {
@@ -38,8 +38,8 @@ public class Result {
     @Override
     public String toString() {
         return "Result{" +
-                "error=" + error +
-                ", message='" + message + '\'' +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
     }

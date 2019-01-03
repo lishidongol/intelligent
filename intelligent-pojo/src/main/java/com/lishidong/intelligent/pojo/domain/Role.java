@@ -1,7 +1,10 @@
 package com.lishidong.intelligent.pojo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -34,6 +37,20 @@ public class Role {
     @Column(name = "level")
     private Integer level;
 
+    /**
+     * 角色信息修改时间
+     */
+    @Column(name = "modify_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifyTime;
+
+    /**
+     * 角色创建时间
+     */
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
+
 
     /**
      * 与其它实体类的关系
@@ -63,6 +80,22 @@ public class Role {
 
     public void setResources(List<Resource> resources) {
         this.resources = resources;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
@@ -115,6 +148,7 @@ public class Role {
                 ", rolename='" + rolename + '\'' +
                 ", remark='" + remark + '\'' +
                 ", level=" + level +
+                ", modifyTime=" + modifyTime +
                 '}';
     }
 }

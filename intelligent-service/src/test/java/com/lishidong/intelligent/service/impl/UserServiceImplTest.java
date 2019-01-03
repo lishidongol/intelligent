@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -45,6 +47,7 @@ public class UserServiceImplTest {
             user.getRoles().add(role);
             user.setAccountNonLocked(true);
             user.setEnabled(true);
+            user.setCreateTime(new Date());
             userRepository.save(user);
             System.out.println(user);
         }
@@ -53,19 +56,25 @@ public class UserServiceImplTest {
 
     @Test
     public void addRole(){
+        Role role1 = new Role();
+        role1.setRolename("ADMIN");
+        role1.setRemark("超级管理员");
+        role1.setLevel(1);
+        role1.setCreateTime(new Date());
+        roleRespository.save(role1);
+
         Role role = new Role();
         role.setRolename("USER");
         role.setRemark("普通用户");
         role.setLevel(3);
+        role.setCreateTime(new Date());
         roleRespository.save(role);
     }
 
     @Test
     public void addResource(){
-
         Resource resource = new Resource();
         resource.setFatherId(0L);
         resource.setResourcename("");
-
     }
 }
