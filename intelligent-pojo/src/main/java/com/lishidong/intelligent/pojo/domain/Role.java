@@ -42,13 +42,27 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<User> users = new ArrayList<>();
 
-
     public List<User> getUsers() {
         return users;
     }
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "t_role_resource",joinColumns = {
+            @JoinColumn(name = "role_id",referencedColumnName = "role_id")},inverseJoinColumns = {
+            @JoinColumn(name = "resource_id",referencedColumnName = "resource_id")
+    })
+    private List<Resource> resources = new ArrayList<>();
+
+    public List<Resource> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<Resource> resources) {
+        this.resources = resources;
     }
 
     /**

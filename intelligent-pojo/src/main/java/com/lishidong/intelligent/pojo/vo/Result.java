@@ -1,7 +1,7 @@
 package com.lishidong.intelligent.pojo.vo;
 
 /**
- * 前端交互统一格式
+ * 统一数据返回实体
  */
 public class Result {
 
@@ -35,20 +35,12 @@ public class Result {
         this.data = data;
     }
 
-    public Result() {
-    }
-
-    public Result(Integer error) {
-        this(error,null,null);
-    }
-
-    public Result(Integer error, String message) {
-        this(error,message,null);
-    }
-
-    public Result(Integer error, String message, Object data) {
-        this.error = error;
-        this.message = message;
-        this.data = data;
+    @Override
+    public String toString() {
+        return "Result{" +
+                "error=" + error +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

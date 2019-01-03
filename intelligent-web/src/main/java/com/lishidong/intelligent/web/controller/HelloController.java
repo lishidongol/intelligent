@@ -2,6 +2,7 @@ package com.lishidong.intelligent.web.controller;
 
 import com.lishidong.intelligent.pojo.domain.Role;
 import com.lishidong.intelligent.pojo.domain.User;
+import com.lishidong.intelligent.pojo.vo.JSONResult;
 import com.lishidong.intelligent.service.RoleService;
 import com.lishidong.intelligent.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

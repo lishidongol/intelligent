@@ -1,5 +1,6 @@
 package com.lishidong.intelligent.pojo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -24,6 +25,7 @@ public class User implements UserDetails {
     @Column(name = "username",unique = true)
     private String username;
 
+    @JsonIgnore
     @Column(name = "password")
     private String password;
 
@@ -71,12 +73,15 @@ public class User implements UserDetails {
      * UserDetails 接口需要的属性
      */
 
+    @JsonIgnore
     @Transient
     private Collection<? extends GrantedAuthority> authorities;
 
+    @JsonIgnore
     @Column(name = "accountNonLocked", length = 1)
     private boolean accountNonLocked;
 
+    @JsonIgnore
     @Column(name = "enabled", length = 1)
     private boolean enabled;
 
