@@ -34,7 +34,7 @@ intelligent-common | 公共模块
 1) 获取单个对象的方法用get做前缀。
 2) 获取多个对象的方法用list做前缀，复数形式结尾如:listObjects。 
 3) 获取统计值的方法用count做前缀。
-4) 插入的方法用save/insert做前缀。
+4) 插入的方法用save/insert做前缀。(本项目中，如果保存的是实体类型的，用save作为前缀)
 5) 删除的方法用remove/delete做前缀。
 6) 修改的方法用update做前缀。
 
